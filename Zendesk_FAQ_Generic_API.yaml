@@ -1,0 +1,46 @@
+---
+swagger: "2.0"
+info:
+  version: "2021-04-15T11:37:32Z"
+  title: "Sonat Zendesk FAQ Api"
+host: "connect.sonat.se"
+basePath: "/faq"
+schemes:
+- "https"
+paths:
+  /{proxy+}:
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+    x-amazon-apigateway-any-method:
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        type: "string"
+      responses: {}
+      security:
+      - api_key: []
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "x-api-key"
+    in: "header"
+definitions:
+  Empty:
+    type: "object"
+    title: "Empty Schema"
